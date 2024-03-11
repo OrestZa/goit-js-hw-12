@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const BASE_URL = 'https://pixabay.com/api/';
-
+export const limit = 15;
 
 export async function getImages(query, page) {
     const options = {

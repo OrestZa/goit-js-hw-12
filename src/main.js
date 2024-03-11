@@ -3,23 +3,23 @@ import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-import { getImages } from './js/pixabay-api';
+import { getImages, limit } from './js/pixabay-api';
 import { searchImage } from './js/render-functions';
-import { loadEnv } from 'vite';
+
 
 const formEl = document.querySelector('.search');
 const loaderEl = document.querySelector('.loader');
 const galleryEl = document.querySelector('.gallery');
 const buttonEl = document.querySelector('.load-more');
 
-const limit = 15;
+
 let lightbox;
 let page = 1;
 let currentPage = 1;
 let prevQuery = '';
 
-formEl.addEventListener('submit', onSubmit);
-buttonEl.addEventListener('click', loadMore);
+formEl.addEventListener("submit", onSubmit);
+buttonEl.addEventListener("click", loadMore);
 
 function lightboxProcessing() {
   return new SimpleLightbox('.gallery-link', {
@@ -33,22 +33,21 @@ function lightboxProcessing() {
 function onSubmit(evt) {
   evt.preventDefault();
   const query = formEl.elements.asking.value.trim();
-
   currentPage = page;
   if (query !== prevQuery) {
     page = 1;
     prevQuery = query;
   }
 
-  galleryEl.innerHTML = '';
-  loaderEl.style.display = 'block';
-  buttonEl.style.display = 'none';
+  galleryEl.innerHTML = "";
+  loaderEl.style.display = "block";
+  buttonEl.style.display = "none";
   bringImg(query, page);
   formEl.reset();
 }
 
 function loadMore() {
-  loaderEl.style.display = 'block';
+  loaderEl.style.display = "block";
   page += 1;
 
   if (page === currentPage + 1) {
@@ -68,7 +67,7 @@ async function bringImg(query, page) {
         position: 'bottomCenter',
         message: 'Fill out this form',
       });
-      loaderEl.style.display = 'none';
+      loaderEl.style.display = "none";
       return;
     } else if (data.hits.length === 0) {
       iziToast.error({
@@ -77,7 +76,7 @@ async function bringImg(query, page) {
         message:
           'Sorry, there are no images matching your search query. Please, try again!',
       });
-      loaderEl.style.display = 'none';
+      loaderEl.style.display = "none";
       return;
     } else {
       const imagesHTML = searchImage(data);
@@ -117,3 +116,4 @@ function scroll() {
   const cardHeight = galleryEl.firstElementChild.getBoundingClientRect().height;
   window.scrollBy({ top: 2 * cardHeight, behavior: 'smooth' });
 }
+

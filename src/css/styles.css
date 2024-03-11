@@ -105,3 +105,8 @@
   font-size: 12px;
   line-height: 1.5;
 }
+
+.btn-element{
+  display: flex;
+  margin-top: 50px;
+}

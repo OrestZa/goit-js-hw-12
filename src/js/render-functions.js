@@ -1,7 +1,8 @@
-export function searchImage(data) {
-    return data.hits.reduce(
-        (html, image) => html +
-            `<div class="container-image-gallery">
+export function searchImage(result) {
+    return result.hits.reduce(
+      (html, image) =>
+        html +
+        `<div class="container-image-gallery">
             <a class="gallery-link" href="${image.largeImageURL}">
             <img
                 class="gallery-image"
@@ -27,6 +28,7 @@ export function searchImage(data) {
               </li>
             </ul>
         </a>
-        </div>`, ''
+        </div>`,
+      ''
     );
 };

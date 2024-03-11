@@ -8,14 +8,21 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-        <form class="search">
-      <input class="input" type="text" name="asking" placeholder="Search images..."/>
+    <form class="search">
+      <input
+        class="input"
+        type="text"
+        name="asking"
+        placeholder="Search images..."
+      />
       <button class="button" type="submit">Search</button>
     </form>
-    <span style="display: none;" class="loader"></span>
-    <ul class="gallery"><ul></ul>
-    <button style="display: none;" class="button load-more"> Load more</button>
-    
+    <span style="display: none" class="loader"></span>
+    <ul class="gallery"></ul>
+    <div class="btn-element">
+      <button style="display: none" class="button load-more">Load more</button>
+    </div>
+
     <script type="module" src="./main.js"></script>
   </body>
 </html>
