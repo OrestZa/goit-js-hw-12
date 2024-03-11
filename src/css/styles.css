@@ -70,13 +70,12 @@
 }
 
 .gallery {
-  width: 1440px;
-  height: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 32px;
+  width: 1200px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 32px;
   gap: 24px;
 }
 
@@ -108,5 +107,7 @@
 
 .btn-element{
   display: flex;
-  margin-top: 50px;
+  margin-top: 32px;
+  margin-bottom: 44px;
+  justify-content: center;
 }
